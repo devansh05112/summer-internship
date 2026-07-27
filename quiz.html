@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block title %}AI Quiz | Cerebra AI{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="quiz-wrapper">
+
+    <div class="quiz-card">
+
+        <div class="quiz-header">
+
+            <h1>🧠 AI Quiz</h1>
+
+            <div id="counter">
+                Question <span id="currentQuestion">1</span> / {{ quiz|length }}
+            </div>
+
+        </div>
+
+        <div class="progress">
+
+            <div class="progress-bar" id="progressBar"></div>
+
+        </div>
+
+        <form id="quizForm"
+              action="{{ url_for('result') }}"
+              method="POST">
+
+            {% for q in quiz %}
+
+            <div class="question {% if not loop.first %}hidden{% endif %}">
+
+                <h2>
+
+                    Q{{ loop.index }}. {{ q.question }}
+
+                </h2>
+
+                <div class="options">
+
+                    {% set qindex = loop.index0 %}
+
+                    {% for option in q.options %}
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q{{ qindex }}"
+                            value="{{ loop.index0 }}">
+
+                        <span>{{ option }}</span>
+
+                    </label>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+            <!-- Hidden answers field -->
+
+            <input
+                type="hidden"
+                id="answersInput"
+                name="answers">
+
+            <div class="buttons">
+
+                <button
+                    type="button"
+                    id="prevBtn">
+
+                    Previous
+
+                </button>
+
+                <button
+                    type="button"
+                    id="nextBtn">
+
+                    Next
+
+                </button>
+
+                <button
+                    type="button"
+                    id="submitBtn"
+                    style="display:none;">
+
+                    Submit Quiz
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+const answers = {{ quiz|tojson }};
+
+</script>
+
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+
+{% endblock %}

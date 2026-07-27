@@ -1,0 +1,560 @@
+/* ==========================================
+   CEREBRA AI - FLASHCARDS
+========================================== */
+
+:root{
+
+    --bg:#0B1120;
+    --surface:#111827;
+    --surface2:#1E293B;
+
+    --primary:#2563EB;
+    --primaryHover:#1D4ED8;
+
+    --text:#F8FAFC;
+    --text2:#94A3B8;
+
+    --border:#334155;
+
+    --radius:20px;
+
+}
+
+/* ============================= */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Segoe UI",sans-serif;
+
+}
+
+/* ============================= */
+
+.flashcards-page{
+
+    width:95%;
+    max-width:1200px;
+
+    margin:30px auto;
+
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.flashcards-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.brain-logo{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:30px;
+
+    background:linear-gradient(
+        135deg,
+        #2563EB,
+        #60A5FA
+    );
+
+}
+
+.header-left h2{
+
+    font-size:32px;
+
+}
+
+.header-left p{
+
+    color:var(--text2);
+
+    margin-top:5px;
+
+}
+
+/* ============================= */
+
+.header-right{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.header-right button{
+
+    border:none;
+
+    cursor:pointer;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    background:#2563EB;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.header-right button:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+}
+
+/* ============================= */
+/* PROGRESS */
+/* ============================= */
+
+.progress-section{
+
+    margin-bottom:35px;
+
+}
+
+.progress-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:10px;
+
+    color:#CBD5E1;
+
+}
+
+.progress-bar{
+
+    height:10px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:#1E293B;
+
+}
+
+.progress-fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        90deg,
+
+        #2563EB,
+
+        #60A5FA
+
+    );
+
+    transition:.4s;
+
+}
+
+/* ============================= */
+/* CARD AREA */
+/* ============================= */
+
+.card-area{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin:45px 0;
+
+    perspective:1500px;
+
+}
+
+/* ============================= */
+
+.flashcard{
+
+    width:720px;
+
+    height:420px;
+
+    cursor:pointer;
+
+}
+
+/* ============================= */
+
+.flashcard-inner{
+
+    width:100%;
+
+    height:100%;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    transition:transform .8s;
+
+}
+
+/* JavaScript will add this */
+
+.flashcard.flipped .flashcard-inner{
+
+    transform:rotateY(180deg);
+
+}
+
+/* ============================= */
+
+.flashcard-front,
+
+.flashcard-back{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:25px;
+
+    padding:40px;
+
+    backface-visibility:hidden;
+
+    background:rgba(17,24,39,.92);
+
+    border:1px solid #334155;
+
+    backdrop-filter:blur(14px);
+
+    box-shadow:
+
+        0 20px 50px rgba(0,0,0,.35);
+
+}
+
+/* ============================= */
+
+.flashcard-front{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+/* ============================= */
+
+.flashcard-back{
+
+    transform:rotateY(180deg);
+
+}
+
+/* ============================= */
+
+.card-label{
+
+    color:#60A5FA;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+
+}
+
+/* ============================= */
+
+#question{
+
+    font-size:34px;
+
+    line-height:1.5;
+
+}
+
+#hint{
+
+    color:#CBD5E1;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+#answer{
+
+    margin-top:20px;
+
+    font-size:20px;
+
+    line-height:1.9;
+
+}
+
+/* ============================= */
+
+.flashcard hr{
+
+    border:none;
+
+    border-top:1px solid #334155;
+
+    margin:30px 0;
+
+}
+
+/* ============================= */
+
+.flip-text{
+
+    margin-top:40px;
+
+    color:#60A5FA;
+
+    animation:pulse 1.5s infinite;
+
+}
+
+/* ============================= */
+
+@keyframes pulse{
+
+    0%{
+
+        opacity:.4;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:.4;
+
+    }
+
+}
+
+/* ============================= */
+/* NAVIGATION */
+/* ============================= */
+
+.navigation{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+}
+
+.navigation button{
+
+    border:none;
+
+    cursor:pointer;
+
+    background:#2563EB;
+
+    color:white;
+
+    padding:14px 30px;
+
+    border-radius:14px;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.navigation button:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-3px);
+
+}
+
+/* ============================= */
+
+.flashcard:hover{
+
+    transform:translateY(-8px);
+
+    transition:.3s;
+
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media(max-width:900px){
+
+.flashcard{
+
+    width:95%;
+
+    height:520px;
+
+}
+
+.flashcards-header{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.header-right{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+#question{
+
+    font-size:26px;
+
+}
+
+}
+
+/* ===================================== */
+/* FINISH SCREEN */
+/* ===================================== */
+
+.finish-screen{
+
+    display:none;
+
+    margin-top:40px;
+
+    padding:40px;
+
+    text-align:center;
+
+    background:#111827;
+
+    border-radius:20px;
+
+    border:1px solid #334155;
+
+}
+
+.finish-screen h2{
+
+    font-size:34px;
+
+    margin-bottom:15px;
+
+}
+
+.finish-screen p{
+
+    color:#94A3B8;
+
+    margin-bottom:25px;
+
+}
+
+.finish-screen button{
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 26px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+}
+
+/* ================================ */
+
+button:disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+}

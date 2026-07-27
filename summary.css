@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap');
+
+:root{
+
+    --primary:#2563EB;
+    --secondary:#3B82F6;
+    --bg:#07111F;
+    --card:rgba(17,24,39,.82);
+    --border:rgba(255,255,255,.08);
+    --text:#F8FAFC;
+    --muted:#94A3B8;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:
+    radial-gradient(circle at top left,#1E3A8A 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#0F766E 0%,transparent 30%),
+    var(--bg);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+.summary-page{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:45px 25px;
+
+}
+
+.summary-card{
+
+    background:var(--card);
+
+    backdrop-filter:blur(22px);
+
+    border:1px solid var(--border);
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:0 30px 60px rgba(0,0,0,.35);
+
+}
+
+.summary-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:35px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.summary-header h1{
+
+    font-family:'Plus Jakarta Sans',sans-serif;
+
+    font-size:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:#60A5FA;
+
+}
+
+.summary-header h1 i{
+
+    font-size:42px;
+
+}
+
+.summary-header p{
+
+    margin-top:12px;
+
+    color:var(--muted);
+
+    font-size:16px;
+
+}
+
+.badge{
+
+    background:rgba(34,197,94,.15);
+
+    color:#4ADE80;
+
+    padding:12px 20px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:1px solid rgba(34,197,94,.25);
+
+}
+
+/* =====================================================
+SUMMARY BODY
+===================================================== */
+
+.summary-body{
+
+    padding:35px;
+
+}
+
+.summary-body pre{
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    color:#E2E8F0;
+
+    font-family:'Inter',sans-serif;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+    white-space:pre-wrap;
+
+    word-wrap:break-word;
+
+    max-height:600px;
+
+    overflow-y:auto;
+
+    transition:.35s;
+
+}
+
+.summary-body pre:hover{
+
+    border-color:rgba(37,99,235,.25);
+
+    box-shadow:0 12px 30px rgba(37,99,235,.12);
+
+}
+
+/* =====================================================
+SCROLLBAR
+===================================================== */
+
+.summary-body pre::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.summary-body pre::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+.summary-body pre::-webkit-scrollbar-thumb{
+
+    background:#2563EB;
+
+    border-radius:20px;
+
+}
+
+/* =====================================================
+ACTION BUTTONS
+===================================================== */
+
+.action-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    padding:30px 35px;
+
+}
+
+.action-buttons button{
+
+    min-width:180px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary));
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+.action-buttons button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 35px rgba(37,99,235,.28);
+
+}
+
+.action-buttons a{
+
+    text-decoration:none;
+
+}
+
+/* =====================================================
+DIVIDER
+===================================================== */
+
+.summary-card hr{
+
+    border:none;
+
+    height:1px;
+
+    background:rgba(255,255,255,.06);
+
+    margin:0 35px;
+
+}
+
+/* =====================================================
+AI TOOLS
+===================================================== */
+
+.ai-tools{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+    padding:35px;
+
+}
+
+.ai-tools a{
+
+    text-decoration:none;
+
+}
+
+.tool-card{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.tool-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.08),
+        transparent
+    );
+
+    transition:.7s;
+
+}
+
+.tool-card:hover::before{
+
+    left:100%;
+
+}
+
+.tool-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#2563EB;
+
+    box-shadow:0 20px 45px rgba(37,99,235,.22);
+
+}
+
+.tool-card i{
+
+    font-size:48px;
+
+    color:#60A5FA;
+
+    margin-bottom:18px;
+
+}
+
+.tool-card h3{
+
+    font-size:24px;
+
+    margin-bottom:10px;
+
+    color:white;
+
+}
+
+.tool-card p{
+
+    color:#94A3B8;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+}
+
+/* =====================================================
+ANIMATIONS
+===================================================== */
+
+.summary-card{
+
+    animation:fadeUp .7s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.tool-card{
+
+    animation:floatCard 5s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =====================================================
+RESPONSIVE
+===================================================== */
+
+@media(max-width:1000px){
+
+.ai-tools{
+
+grid-template-columns:1fr;
+
+}
+
+.summary-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:20px;
+
+}
+
+.action-buttons{
+
+flex-direction:column;
+
+}
+
+.action-buttons button{
+
+width:100%;
+
+}
+
+}
+
+@media(max-width:700px){
+
+.summary-page{
+
+padding:20px;
+
+}
+
+.summary-header{
+
+padding:25px;
+
+}
+
+.summary-header h1{
+
+font-size:30px;
+
+}
+
+.summary-body{
+
+padding:20px;
+
+}
+
+.summary-body pre{
+
+padding:20px;
+
+font-size:15px;
+
+}
+
+.ai-tools{
+
+padding:20px;
+
+}
+
+}
+
+/* =====================================================
+PRINT MODE
+===================================================== */
+
+@media print{
+
+body{
+
+background:white;
+
+}
+
+.summary-card{
+
+box-shadow:none;
+
+border:1px solid #ccc;
+
+}
+
+.action-buttons,
+
+.ai-tools{
+
+display:none;
+
+}
+
+.summary-body pre{
+
+max-height:none;
+
+overflow:visible;
+
+background:white;
+
+color:black;
+
+border:none;
+
+}
+
+}

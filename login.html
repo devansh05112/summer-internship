@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}Login | Cerebra AI{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <div class="logo">
+
+            <div class="brain-icon">
+                <i class="fas fa-brain"></i>
+            </div>
+
+            <h1>Cerebra AI</h1>
+
+            <p>Your Personal AI Study Assistant</p>
+
+        </div>
+
+        <!-- Login Form Starts Here -->
+        <form method="POST">
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                class="form-control"
+                required>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                class="form-control"
+                required>
+
+            <button type="submit" class="login-btn">
+                <i class="fas fa-arrow-right"></i>
+                Sign In Securely
+            </button>
+
+        </form>
+        <!-- Login Form Ends Here -->
+
+        <div class="footer-text">
+            Secure • Fast • AI Powered
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

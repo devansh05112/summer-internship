@@ -1,0 +1,61 @@
+:root{
+    --bg:#07111F;
+    --bg2:#0F172A;
+    --card:rgba(17,24,39,.75);
+    --primary:#2563EB;
+    --primary-hover:#1D4ED8;
+    --secondary:#06B6D4;
+    --text:#F8FAFC;
+    --muted:#94A3B8;
+    --border:rgba(255,255,255,.06);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    color:var(--text);
+
+    font-family:'Inter',sans-serif;
+
+    background:
+
+    radial-gradient(circle at 15% 15%,rgba(37,99,235,.18),transparent 25%),
+
+    radial-gradient(circle at 85% 80%,rgba(6,182,212,.12),transparent 25%),
+
+    linear-gradient(135deg,#07111F,#0B1220,#111827);
+
+}
+
+h1,h2,h3,h4,h5,h6,
+.logo,
+.sidebar span{
+
+    font-family:'Plus Jakarta Sans',sans-serif;
+
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+}
+
+input{
+    outline:none;
+}

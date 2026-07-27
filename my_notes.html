@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block title %}My Notes{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/my_notes.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="notes-page">
+
+    <div class="notes-header">
+
+        <div>
+
+            <h1>📄 My Notes</h1>
+
+            <p>
+                All your uploaded study materials in one place.
+            </p>
+
+        </div>
+
+        <a href="{{ url_for('dashboard') }}" class="upload-btn">
+
+            + Upload More
+
+        </a>
+
+    </div>
+
+    <div class="search-box">
+
+        <input
+        type="text"
+        placeholder="Search notes...">
+
+    </div>
+
+    <div class="notes-grid">
+
+        <!-- Demo Card -->
+
+        {% if notes %}
+
+    {% for note in notes %}
+
+    <div class="note-card">
+
+        <div class="pdf-icon">
+
+            <i class="fas fa-file-pdf"></i>
+
+        </div>
+
+        <h3>{{ note.name }}</h3>
+
+        <p>{{ note.date }}</p>
+
+        <div class="actions">
+
+            <button>
+
+                Open
+
+            </button>
+
+            <button class="delete">
+
+                Delete
+
+            </button>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+<div class="empty-state">
+
+    <i class="fas fa-folder-open"></i>
+
+    <h2>No Notes Yet</h2>
+
+    <p>
+
+        Upload your first PDF to begin studying.
+
+    </p>
+
+</div>
+
+{% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

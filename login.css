@@ -1,0 +1,140 @@
+.login-container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+}
+
+.login-card{
+
+    width:430px;
+
+    background:rgba(17,24,39,.92);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:24px;
+
+    padding:45px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.35);
+
+}
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.brain-icon{
+
+    width:80px;
+
+    height:80px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#4F8EF7;
+
+    font-size:32px;
+
+    margin-bottom:20px;
+
+}
+
+.logo h1{
+
+    font-weight:700;
+
+}
+
+.logo p{
+
+    color:#94A3B8;
+
+}
+
+.form-control{
+
+    height:55px;
+
+    margin-bottom:18px;
+
+    border-radius:12px;
+
+    background:#0F172A;
+
+    border:1px solid #1F2937;
+
+    color:white;
+
+}
+
+.form-control:focus{
+
+    background:#0F172A;
+
+    color:white;
+
+    border-color:#4F8EF7;
+
+    box-shadow:none;
+
+}
+
+.login-btn{
+
+    width:100%;
+
+    height:55px;
+
+    border-radius:12px;
+
+    background:#4F8EF7;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    background:#3E7BE2;
+
+}
+
+.footer-text{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+}

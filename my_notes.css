@@ -1,0 +1,193 @@
+body{
+
+    background:#0B1120;
+
+}
+
+.notes-page{
+
+    width:92%;
+
+    max-width:1300px;
+
+    margin:30px auto;
+
+}
+
+.notes-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.notes-header h1{
+
+    color:white;
+
+}
+
+.notes-header p{
+
+    color:#94A3B8;
+
+}
+
+.upload-btn{
+
+    background:#2563EB;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+}
+
+.search-box{
+
+    margin-bottom:30px;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:15px;
+
+    background:#111827;
+
+    color:white;
+
+    border:1px solid #334155;
+
+    border-radius:14px;
+
+}
+
+.notes-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+
+    gap:25px;
+
+}
+
+.note-card{
+
+    background:#111827;
+
+    border:1px solid #334155;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.note-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#2563EB;
+
+}
+
+.pdf-icon{
+
+    font-size:50px;
+
+    color:#EF4444;
+
+    margin-bottom:15px;
+
+}
+
+.note-card h3{
+
+    color:white;
+
+}
+
+.note-card p{
+
+    color:#94A3B8;
+
+    margin:15px 0;
+
+}
+
+.actions{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.actions button{
+
+    flex:1;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:10px;
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+.delete{
+
+    background:#DC2626 !important;
+
+}
+
+.empty-state{
+
+    grid-column:1/-1;
+
+    text-align:center;
+
+    padding:70px 20px;
+
+    color:#94A3B8;
+
+}
+
+.empty-state i{
+
+    font-size:70px;
+
+    color:#2563EB;
+
+    margin-bottom:20px;
+
+}
+
+.empty-state h2{
+
+    color:white;
+
+    margin-bottom:10px;
+
+}

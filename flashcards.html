@@ -1,0 +1,208 @@
+{% extends "layout.html" %}
+
+{% block title %}AI Flashcards{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/flashcards.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="flashcards-page">
+
+    <!-- ================= Header ================= -->
+
+    <div class="flashcards-header">
+
+        <div class="header-left">
+
+            <div class="brain-logo">
+                🧠
+            </div>
+
+            <div>
+
+                <h2>AI Flashcards</h2>
+
+                <p>Master your notes one card at a time</p>
+
+            </div>
+
+        </div>
+
+        <div class="header-right">
+
+            <button id="shuffleBtn">
+
+                🔀 Shuffle
+
+            </button>
+
+            <button id="restartBtn">
+
+                ↺ Restart
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= Progress ================= -->
+
+    <div class="progress-section">
+
+        <div class="progress-info">
+
+            <span id="cardCounter">
+
+                Card 1 / {{ flashcards|length }}
+
+            </span>
+
+            <span id="progressPercent">
+
+                0%
+
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div class="progress-fill" id="progressFill"></div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= Flashcard ================= -->
+
+    <div class="card-area">
+
+        <div class="flashcard" id="flashcard">
+
+            <div class="flashcard-inner">
+
+                <!-- Front -->
+
+                <div class="flashcard-front">
+
+                    <div class="card-label">
+
+                        QUESTION
+
+                    </div>
+
+                    <h2 id="question">
+
+                        {{ flashcards[0].question }}
+
+                    </h2>
+
+                    <p class="flip-text">
+
+                        Click to Reveal
+
+                    </p>
+
+                </div>
+
+                <!-- Back -->
+
+                <div class="flashcard-back">
+
+                    <div class="card-label">
+
+                        HINT
+
+                    </div>
+
+                    <p id="hint">
+
+                        {{ flashcards[0].hint }}
+
+                    </p>
+
+                    <hr>
+
+                    <div class="card-label">
+
+                        ANSWER
+
+                    </div>
+
+                    <p id="answer">
+
+                        {{ flashcards[0].answer }}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= Navigation ================= -->
+<div class="navigation">
+
+    <button id="prevBtn">
+
+        ← Previous
+
+    </button>
+
+    <button id="masterBtn">
+
+        ⭐ Mastered
+
+    </button>
+
+    <button id="favoriteBtn">
+
+        ❤️ Favorite
+
+    </button>
+
+    <button id="nextBtn">
+
+        Next →
+
+    </button>
+
+</div>
+
+<div id="finishScreen" class="finish-screen">
+
+    <h2>🎉 Congratulations!</h2>
+
+    <p>
+
+        You have completed all flashcards.
+
+    </p>
+
+    <button id="studyAgain">
+
+        Study Again
+
+    </button>
+
+</div>
+
+</div>
+
+<!-- Store Flashcards for JavaScript -->
+
+<script>
+
+const flashcards = {{ flashcards|tojson }};
+
+</script>
+
+<script src="{{ url_for('static', filename='js/flashcards.js') }}"></script>
+
+{% endblock %}

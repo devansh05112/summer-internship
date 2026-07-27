@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block title %}Study History{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/history.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="history-page">
+
+    <!-- Header -->
+
+    <div class="history-header">
+
+        <div>
+
+            <h1>📚 Study History</h1>
+
+            <p>
+                View all your previous study sessions.
+            </p>
+
+        </div>
+
+        <button class="clear-btn">
+
+            🗑 Clear History
+
+        </button>
+
+    </div>
+
+    <!-- Search -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            placeholder="Search document..."
+        >
+
+    </div>
+
+    <!-- History List -->
+
+    <div class="history-list">
+
+        <!-- Demo Card -->
+
+        <div class="history-card">
+
+            <div class="card-left">
+
+                <div class="file-icon">
+
+                    📄
+
+                </div>
+
+                <div>
+
+                    <h3>Python Notes.pdf</h3>
+
+                    <p>
+
+                        27 July 2026 • 6:30 PM
+
+                    </p>
+
+                    <div class="tags">
+
+                        <span>Summary</span>
+
+                        <span>Quiz</span>
+
+                        <span>Flashcards</span>
+
+                        <span>Chat</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card-right">
+
+                <button>
+
+                    Open
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- End Demo -->
+
+    </div>
+
+</div>
+
+{% endblock %}

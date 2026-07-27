@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block title %}Chat with Notes{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="chat-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="chat-header">
+
+        <div class="logo-area">
+
+            <div class="ai-logo">
+                🤖
+            </div>
+
+            <div>
+                <h2>Cerebra AI</h2>
+                <p>AI Study Assistant</p>
+            </div>
+
+        </div>
+
+        <div class="header-right">
+
+            <div class="document-name">
+                📄 {{ session.get('filename','No Document') }}
+            </div>
+
+            <button id="newChat">
+                + New Chat
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= CHAT BOX ================= -->
+
+    <div id="chatBox" class="chat-box">
+
+        <div class="welcome">
+
+            <div class="welcome-logo">
+                🤖
+            </div>
+
+            <h1>Welcome to Cerebra AI</h1>
+
+            <p>
+                Your intelligent study companion.<br>
+                Ask questions, summarize notes,
+                generate explanations and much more.
+            </p>
+
+        </div>
+
+        <div class="suggestions">
+
+            <button class="prompt">
+                Explain this chapter
+            </button>
+
+            <button class="prompt">
+                Give key points
+            </button>
+
+            <button class="prompt">
+                Summarize the notes
+            </button>
+
+            <button class="prompt">
+                Ask me MCQs
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= INPUT ================= -->
+
+    <form id="chatForm">
+
+        <div class="chat-input">
+
+            <textarea
+                id="question"
+                placeholder="Ask anything about your notes..."
+                rows="1"
+                autocomplete="off"
+                required
+            ></textarea>
+
+            <button type="submit">
+                ➤
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+<!-- Markdown Library -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- Chat Script -->
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+
+{% endblock %}

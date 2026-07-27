@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+
+{% block title %}AI Summary | Cerebra AI{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/summary.css') }}">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="summary-page">
+
+    <div class="summary-card">
+
+        <!-- Header -->
+
+        <div class="summary-header">
+
+            <div>
+
+                <h1>
+                    <i class="fas fa-brain"></i>
+                    AI Summary
+                </h1>
+
+                <p>{{ filename }}</p>
+
+            </div>
+
+            <div class="badge">
+
+                <i class="fas fa-check-circle"></i>
+
+                AI Generated
+
+            </div>
+
+        </div>
+
+        <!-- Summary -->
+
+        <div class="summary-body">
+
+            <pre id="summaryText">{{ summary }}</pre>
+
+        </div>
+
+        <!-- Action Buttons -->
+
+        <div class="action-buttons">
+
+            <button id="copyBtn">
+                <i class="fas fa-copy"></i>
+                Copy
+            </button>
+
+         <a href="{{ url_for('download_summary') }}">
+
+    <button type="button">
+
+        <i class="fas fa-download"></i>
+
+        Download Summary
+
+    </button>
+
+</a>
+
+            <a href="{{ url_for('dashboard') }}">
+
+                <button type="button">
+
+                    <i class="fas fa-home"></i>
+
+                    Dashboard
+
+                </button>
+
+            </a>
+
+        </div>
+
+        <hr>
+
+        <!-- AI Tools -->
+
+        <div class="ai-tools">
+
+            <!-- Quiz -->
+
+            <a href="{{ url_for('quiz') }}">
+
+                <div class="tool-card">
+
+                    <i class="fas fa-question-circle"></i>
+
+                    <h3>Generate Quiz</h3>
+
+                    <p>Create AI MCQs instantly</p>
+
+                </div>
+
+            </a>
+
+            <!-- Flashcards -->
+
+            <a href="/flashcards">
+
+                <div class="tool-card">
+
+                    <i class="fas fa-layer-group"></i>
+
+                    <h3>Flashcards</h3>
+
+                    <p>Revise quickly</p>
+
+                </div>
+
+            </a>
+
+            <!-- AI Chat -->
+
+            <a href="/chat">
+
+                <div class="tool-card">
+
+                    <i class="fas fa-robot"></i>
+
+                    <h3>Ask AI</h3>
+
+                    <p>Chat with your notes</p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/summary.js') }}"></script>
+
+{% endblock %}
